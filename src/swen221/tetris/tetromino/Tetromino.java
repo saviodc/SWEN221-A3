@@ -99,9 +99,12 @@ public abstract class Tetromino {
   public boolean overlap(Board b) {
     //note, here we leverage on b.read returning Optional.empty()
     //when x,y are out of the board
-    return Board.rangeT().allMatch(i->{
-    	return b.read(x(i), y(i)).isPresent() && !b.read(x(i), y(i)).get().equals(this.color);    
+	//return false;
+    return !Board.rangeT().allMatch( i->{
+    	Optional<Color> op = b.read(x(i), y(i));
+    	 return op.isPresent() && op.get().equals(Color.EMPTY);
     });
+	  
   }
 
   /**

@@ -85,6 +85,7 @@ public class Game {
 		  active.moveDown();
 	  }
 	  active.moveUp();
+	  //commitMove();
   }//TODO: complete this code
 
   /**@return a new Tetromino chosen at random*/

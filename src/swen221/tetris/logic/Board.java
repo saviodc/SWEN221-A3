@@ -96,7 +96,8 @@ public class Board {
   private boolean isRowFull(int y) {
      assert yOk(y) : "row " + y + "not in 0-19";
      //TODO: completing this method may help you to complete clearFullRows!
-     throw new Error();
+     return !rangeX().anyMatch(x->read(x,y).get().equals(Color.EMPTY));
+     //throw new Error();
    }
    
   /**
@@ -107,6 +108,7 @@ public class Board {
     //hint: the top row is the one with y=19
     //      the bottom row is the one with y=0
     //TODO: complete this code
+	   reverseRangeY().filter(y->isRowFull(y)).forEach(this::clearRow);
   }
 
   public String toString() {
